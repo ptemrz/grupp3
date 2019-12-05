@@ -3,8 +3,6 @@ package vp;
 import java.util.ArrayList;
 import java.util.List;
 
-import vpyo.Card;
-
 public class Videopoker {
 
 	Deck deck = new Deck();
@@ -28,44 +26,45 @@ public class Videopoker {
 	 */
 	private boolean isFullHouse(List<Card> hand) {
 
-		if (! (hand.get(0).getValue() == hand.get(1).getValue())) {
+		if (!(hand.get(0).getValue() == hand.get(1).getValue())) {
 			return false;
 		}
-		
-		if (! (hand.get(4).getValue() == hand.get(3).getValue())) {
+
+		if (!(hand.get(4).getValue() == hand.get(3).getValue())) {
 			return false;
 		}
-		
-		if (! (hand.get(3).getValue() == hand.get(2).getValue()) || hand.get(2).getValue() == hand.get(1).getValue()) {
+
+		if (!(hand.get(3).getValue() == hand.get(2).getValue()) || hand.get(2).getValue() == hand.get(1).getValue()) {
 			return false;
 		}
 
 		return true;
 	}
-	
+
 	/**
 	 * Checks if the given hand is a three of a kind
 	 * 
 	 * @return true if the hand is a three of a kind
 	 * @param hand must be a sorted list of cards (assuming sorting by value)
 	 */
-	private boolean isThreeOfAKind(List<Card>hand) {
-		
-		if(hand.get(0).getValue() == hand.get(1).getValue() && hand.get(0).getValue() == hand.get(2).getValue()) {
+	private boolean isThreeOfAKind(List<Card> hand) {
+
+		if (hand.get(0).getValue() == hand.get(1).getValue() && hand.get(0).getValue() == hand.get(2).getValue()) {
 			return true;
 		}
-		
+
 		if (hand.get(1).getValue() == hand.get(2).getValue() && hand.get(1).getValue() == hand.get(3).getValue()) {
 			return true;
 		}
-		
+
 		if (hand.get(2).getValue() == hand.get(3).getValue() && hand.get(2).getValue() == hand.get(4).getValue()) {
 			return true;
 		}
-		
+
 		return false;
-		
+
 	}
+
 	/**
 	 * Checks if the given hand is a pair
 	 * 
@@ -73,13 +72,12 @@ public class Videopoker {
 	 * @param hand must be a sorted list of cards (assuming sorting by value)
 	 */
 	public boolean isPair(List<Card> hand) {
-		for (int i = 0; i < (hand.size()-1); i++) {
-			if (hand.get(i)==(hand.get(i+1))) {
+		for (int i = 0; i < (hand.size() - 1); i++) {
+			if (hand.get(i) == (hand.get(i + 1))) {
 				return true;
 			}
-				
+
 		}
 		return false;
 	}
 }
-
