@@ -86,7 +86,7 @@ public class Videopoker {
 	 * @return true if the hand is a pair
 	 * @param hand must be a sorted list of cards (assuming sorting by value)
 	 */
-	public boolean isPair(List<Card> hand) {
+	private boolean isPair(List<Card> hand) {
 		for (int i = 0; i < (hand.size() - 1); i++) {
 			if (hand.get(i) == (hand.get(i + 1))) {
 				return true;
