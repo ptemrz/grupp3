@@ -49,15 +49,15 @@ public class Videopoker {
 	 */
 	private boolean isThreeOfAKind(List<Card>hand) {
 		
-		if(hand.get(0).getValue() == hand.get(1).getValue() || hand.get(0).getValue() == hand.get(2).getValue()) {
+		if(hand.get(0).getValue() == hand.get(1).getValue() && hand.get(0).getValue() == hand.get(2).getValue()) {
 			return true;
 		}
 		
-		if (hand.get(1).getValue() == hand.get(2).getValue() || hand.get(1).getValue() == hand.get(3).getValue()) {
+		if (hand.get(1).getValue() == hand.get(2).getValue() && hand.get(1).getValue() == hand.get(3).getValue()) {
 			return true;
 		}
 		
-		if (hand.get(2).getValue() == hand.get(3).getValue() || hand.get(2).getValue() == hand.get(4).getValue()) {
+		if (hand.get(2).getValue() == hand.get(3).getValue() && hand.get(2).getValue() == hand.get(4).getValue()) {
 			return true;
 		}
 		
