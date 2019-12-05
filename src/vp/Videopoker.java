@@ -3,6 +3,8 @@ package vp;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class Videopoker {
 
 	Deck deck = new Deck();
@@ -94,5 +96,29 @@ public class Videopoker {
 
 		}
 		return false;
+	}
+	public boolean isFlush() {
+		/**
+		 * Checks if the given hand is a flush
+		 * 
+		 * @return true if the hand is a flush
+		 * @param hand must be a sorted list of cards (assuming sorting by value)
+		 */	
+		
+		int antalKortMedSammaFärg = 0;
+		Suit suitPåFörstaKortet = hand.get(0).getSuit();
+		
+		for(int i = 0; 0 < hand.size() -1; i++) {
+			
+			if(suitPåFörstaKortet == (hand.get(i).getSuit())){
+				antalKortMedSammaFärg++;
+			}
+			 
+		}
+		if (antalKortMedSammaFärg == 5) {
+			return true; 
+					} else {
+						return false;
+					}	
 	}
 }
