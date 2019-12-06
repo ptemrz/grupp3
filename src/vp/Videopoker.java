@@ -8,6 +8,12 @@ public class Videopoker {
 	Deck deck = new Deck();
 
 	List<Card> hand = new ArrayList<>();
+	
+	public void fillHandWithCards() {
+		while(hand.size() < 5) {
+			hand.add(deck.draw());
+		}
+	}
 
 	public void resetGame() {
 
