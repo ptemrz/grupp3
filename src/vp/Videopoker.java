@@ -2,12 +2,55 @@ package vp;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Videopoker {
 
 	Deck deck = new Deck();
 
 	List<Card> hand = new ArrayList<>();
+	
+	public void keepTheseCards() {
+		
+		System.out.println("Vilket kort vill du slänga? Välj kortet genom att skriva ett tal mellan 1 till 5. Skriv exit för att fortsätta");
+		
+		Scanner sc = new Scanner(System.in);
+		String i = sc.nextLine();
+		String e = "exit";
+		while(!i.equals(e)) {
+			if(hand.size() == 0) {
+				i = "exit";
+			}
+			if(i.equals("1")) {
+				hand.remove(0);
+				System.out.println("Välj ett nytt kort.");
+			}
+			else if(i.equals("2")) {
+				hand.remove(1);
+				System.out.println("Välj ett nytt kort.");
+			}
+			else if(i.equals("3")) {
+				hand.remove(2);
+				System.out.println("Välj ett nytt kort.");
+			}
+			else if(i.equals("4")) {
+				hand.remove(3);
+				System.out.println("Välj ett nytt kort.");
+			}
+			else if(i.equals("5")) {
+				hand.remove(4);
+				System.out.println("Välj ett nytt kort.");
+			}
+		}
+		
+		
+	}
+	
+	public void fillHandWithCards() {
+		while(hand.size() < 5) {
+			hand.add(deck.draw());
+		}
+	}
 
 	public void resetGame() {
 
@@ -28,7 +71,7 @@ public class Videopoker {
 	 * @return true if the hand is a full house
 	 * @param hand must be a sorted list of cards
 	 */
-	private boolean isFullHouse(List<Card> hand) {
+	public boolean isFullHouse(List<Card> hand) {
 
 		if (!(hand.get(0).getValue() == hand.get(1).getValue())) {
 			return false;
@@ -42,6 +85,10 @@ public class Videopoker {
 			return false;
 		}
 
+		return true;
+	}
+	
+	private boolean isFourOfAKind(List<Card> hand) {
 		return true;
 	}
 
@@ -68,10 +115,6 @@ public class Videopoker {
 		return false;
 
 	}
-	
-	private boolean isFourOfAKind(List<Card> hand) {
-		return true;
-	}
 
 	/**
 	 * Checks if the given hand is a Double pair
@@ -79,7 +122,7 @@ public class Videopoker {
 	 * @return true if the hand is a JQKA-pair
 	 * @param hand must be a sorted list of cards (assuming sorting by value)
 	 */
-	private boolean isDoublePair(List<Card> hand) {
+	public boolean isTwoPair(List<Card> hand) {
 		if ((hand.get(0).getValue() == hand.get(1).getValue()) && (hand.get(2).getValue() == hand.get(3).getValue())) {
 			return true;
 		}
@@ -98,7 +141,7 @@ public class Videopoker {
 	 * @return true if the hand is a JQKA-pair
 	 * @param hand must be a sorted list of cards (assuming sorting by value)
 	 */
-	private boolean isJQKAPair(List<Card> hand) {
+	public boolean isJQKAPair(List<Card> hand) {
 		for (int i = 0; i < hand.size(); i++) {
 			if (hand.get(i).getValue() == (hand.get(i + 1).getValue()) && hand.get(i).getValue() > 10) {
 				return true;
@@ -113,7 +156,7 @@ public class Videopoker {
 	 * @return true if the hand is a pair
 	 * @param hand must be a sorted list of cards (assuming sorting by value)
 	 */
-	private boolean isPair(List<Card> hand) {
+	public boolean isPair(List<Card> hand) {
 		for (int i = 0; i < (hand.size() - 1); i++) {
 			if (hand.get(i).getValue() == (hand.get(i + 1).getValue())) {
 				return true;
@@ -124,7 +167,6 @@ public class Videopoker {
 	}
 
 	public boolean isFlush(List<Card> hand) {
-
 		/**
 		 * Checks if the given hand is a flush
 		 * 
@@ -133,11 +175,11 @@ public class Videopoker {
 		 */	
 		
 		int antalKortMedSammaFärg = 0;
-		Suit suitPåFörstaKortet = hand.get(0).getSuit();
+		Suit sameSuit = hand.get(0).getSuit();
 		
-		for(int i = 0; i < hand.size() -1; i++) {
+		for(int i = 0; i < hand.size(); i++) {
 			
-			if(suitPåFörstaKortet == (hand.get(i).getSuit())){
+			if(sameSuit == (hand.get(i).getSuit())){
 				antalKortMedSammaFärg++;
 			}
 			 
@@ -157,10 +199,11 @@ public class Videopoker {
 	public boolean isStraight(List<Card> hand) {
 
 		int i = 0;
-		if (hand.get(i).getValue() == hand.get(i + 1).getValue() + 1) {
-			if (hand.get(i + 1).getValue() == hand.get(i + 2).getValue() + 1) {
-				if (hand.get(i + 2).getValue() == hand.get(i + 3).getValue() + 1) {
-					if (hand.get(i + 3).getValue() == hand.get(i + 4).getValue() + 1) {
+
+		if (hand.get(i).getValue() + 1 == hand.get(i + 1).getValue()) {
+			if (hand.get(i + 1).getValue() + 1 == hand.get(i + 2).getValue()) {
+				if (hand.get(i + 2).getValue() + 1 == hand.get(i + 3).getValue()) {
+					if (hand.get(i + 3).getValue() + 1 == hand.get(i + 4).getValue()) {
 						return true;
 					}
 				}
@@ -177,13 +220,13 @@ public class Videopoker {
 	public boolean isStraightFlush(List<Card> hand) {
 
 		int i = 0;
-		if (hand.get(i).getValue() == (hand.get(i + 1).getValue() + 1)
+		if (hand.get(i).getValue() + 1 == (hand.get(i + 1).getValue())
 				&& hand.get(i).getSuit() == hand.get(i + 1).getSuit()) {
-			if (hand.get(i + 1).getValue() == hand.get(i + 2).getValue() + 1
+			if (hand.get(i + 1).getValue() + 1 == hand.get(i + 2).getValue()
 					&& hand.get(i + 1).getSuit() == hand.get(i + 2).getSuit()) {
-				if (hand.get(i + 2).getValue() == hand.get(i + 3).getValue() + 1
+				if (hand.get(i + 2).getValue() + 1 == hand.get(i + 3).getValue()
 						&& hand.get(i + 2).getSuit() == hand.get(i + 3).getSuit()) {
-					if (hand.get(i + 3).getValue() == hand.get(i + 4).getValue() + 1
+					if (hand.get(i + 3).getValue() + 1 == hand.get(i + 4).getValue()
 							&& hand.get(i + 3).getSuit() == hand.get(i + 4).getSuit()) {
 						return true;
 					}
@@ -220,8 +263,42 @@ public class Videopoker {
 	 * 
 	 * @return coresponding value from kortkombinationer (void while coding)
 	 * @param see parameters of all combination-methods
+	 * @return 
 	 */	
-	private void getPokerHand(List<Card>hand) {
+	private KortKombinationer getPokerHand(List<Card>hand) {
 		
+		if (isRoyalStraightFlush(hand) == true) {
+			return KortKombinationer.ROYALSTRAIGHTFLUSH;
+		}
+		else if (isStraightFlush(hand) == true) {
+			return KortKombinationer.STRAIGHTFLUSH;
+		}
+		else if (isFourOfAKind(hand) == true) {
+			return KortKombinationer.FOUROFAKIND;
+		}
+		else if (isFullHouse(hand) == true) {
+			return KortKombinationer.FULLHOUSE;
+		}
+		else if (isFlush(hand) == true) {
+			return KortKombinationer.FLUSH;
+		}
+		else if (isStraight(hand) == true) {
+			return KortKombinationer.STRAIGHT;
+		}
+		else if (isThreeOfAKind(hand) == true) {
+			return KortKombinationer.THREEOFAKIND;
+		}
+		else if (isTwoPair(hand) == true) {
+			return KortKombinationer.TWOPAIRS;
+		}
+		else if (isJQKAPair(hand) == true) {
+			return KortKombinationer.PAIRJQKA;
+		}
+		else if (isPair(hand) == true) {
+			return KortKombinationer.PAIR;
+		}
+		else {
+			return KortKombinationer.EMPTY;
+		}
 	}
 }
