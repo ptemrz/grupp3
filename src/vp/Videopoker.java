@@ -266,7 +266,7 @@ public class Videopoker {
 	 * @param see parameters of all combination-methods
 	 * @return 
 	 */	
-	private KortKombinationer getPokerHand(List<Card>hand) {
+	public KortKombinationer getPokerHand(List<Card>hand) {
 		
 		if (isRoyalStraightFlush(hand) == true) {
 			return KortKombinationer.ROYALSTRAIGHTFLUSH;

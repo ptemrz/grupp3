@@ -136,4 +136,20 @@ class VideopokerTest {
 		val = videopoker.isFullHouse(videopoker.hand);
 		assertEquals(asume, val);
 	}
+	@Test
+	void testKortKombinationer() {
+		videopoker.hand.add(new Card(1, Suit.HEARTS));
+		videopoker.hand.add(new Card(10, Suit.HEARTS));
+		videopoker.hand.add(new Card(11, Suit.HEARTS));
+		videopoker.hand.add(new Card(12, Suit.HEARTS));
+		videopoker.hand.add(new Card(13, Suit.HEARTS));
+		assertEquals(videopoker.getPokerHand(videopoker.hand), KortKombinationer.ROYALSTRAIGHTFLUSH);
+	}
+	
+	
+//	private KortKombinationer getPokerHand(List<Card>hand) {
+//		
+//		if (isRoyalStraightFlush(hand) == true) {
+//			return KortKombinationer.ROYALSTRAIGHTFLUSH;
+//		}
 }
