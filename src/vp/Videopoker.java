@@ -174,17 +174,17 @@ public class Videopoker {
 		 * @param hand must be a sorted list of cards (assuming sorting by value)
 		 */	
 		
-		int antalKortMedSammaFärg = 0;
+		int cardsWithSameColor = 0;
 		Suit sameSuit = hand.get(0).getSuit();
 		
 		for(int i = 0; i < hand.size(); i++) {
 			
 			if(sameSuit == (hand.get(i).getSuit())){
-				antalKortMedSammaFärg++;
+				cardsWithSameColor++;
 			}
 			 
 		}
-		if (antalKortMedSammaFärg == 5) {
+		if (cardsWithSameColor == 5) {
 			return true; 
 					} else {
 						return false;
