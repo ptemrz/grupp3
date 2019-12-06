@@ -40,6 +40,10 @@ public class Videopoker {
 
 		return true;
 	}
+	
+	private boolean isFourOfAKind(List<Card> hand) {
+		return true;
+	}
 
 	/**
 	 * Checks if the given hand is a three of a kind
@@ -64,10 +68,6 @@ public class Videopoker {
 		return false;
 
 	}
-	
-	private boolean isFourOfAKind(List<Card> hand) {
-		return true;
-	}
 
 	/**
 	 * Checks if the given hand is a Double pair
@@ -75,7 +75,7 @@ public class Videopoker {
 	 * @return true if the hand is a JQKA-pair
 	 * @param hand must be a sorted list of cards (assuming sorting by value)
 	 */
-	private boolean isDoublePair(List<Card> hand) {
+	private boolean isTwoPair(List<Card> hand) {
 		if ((hand.get(0).getValue() == hand.get(1).getValue()) && (hand.get(2).getValue() == hand.get(3).getValue())) {
 			return true;
 		}
@@ -120,7 +120,6 @@ public class Videopoker {
 	}
 
 	public boolean isFlush(List<Card> hand) {
-
 		/**
 		 * Checks if the given hand is a flush
 		 * 
@@ -216,8 +215,42 @@ public class Videopoker {
 	 * 
 	 * @return coresponding value from kortkombinationer (void while coding)
 	 * @param see parameters of all combination-methods
+	 * @return 
 	 */	
-	private void getPokerHand(List<Card>hand) {
+	private KortKombinationer getPokerHand(List<Card>hand) {
 		
+		if (isRoyalStraightFlush(hand) == true) {
+			return KortKombinationer.ROYALSTRAIGHTFLUSH;
+		}
+		else if (isStraightFlush(hand) == true) {
+			return KortKombinationer.STRAIGHTFLUSH;
+		}
+		else if (isFourOfAKind(hand) == true) {
+			return KortKombinationer.FOUROFAKIND;
+		}
+		else if (isFullHouse(hand) == true) {
+			return KortKombinationer.FULLHOUSE;
+		}
+		else if (isFlush(hand) == true) {
+			return KortKombinationer.FLUSH;
+		}
+		else if (isStraight(hand) == true) {
+			return KortKombinationer.STRAIGHT;
+		}
+		else if (isThreeOfAKind(hand) == true) {
+			return KortKombinationer.THREEOFAKIND;
+		}
+		else if (isTwoPair(hand) == true) {
+			return KortKombinationer.TWOPAIRS;
+		}
+		else if (isJQKAPair(hand) == true) {
+			return KortKombinationer.PAIRJQKA;
+		}
+		else if (isPair(hand) == true) {
+			return KortKombinationer.PAIR;
+		}
+		else {
+			return KortKombinationer.EMPTY;
+		}
 	}
 }

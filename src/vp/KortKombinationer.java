@@ -10,5 +10,6 @@ public enum KortKombinationer {
 	THREEOFAKIND,
 	TWOPAIRS,
 	PAIRJQKA,
-	PAIR;
+	PAIR,
+	EMPTY;
 }
