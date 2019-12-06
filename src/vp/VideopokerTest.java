@@ -58,5 +58,16 @@ class VideopokerTest {
 		val = videopoker.isTwoPair(videopoker.hand);
 		assertEquals(asume, val);
 	}
-
+	@Test
+	void testRoyalStraightFlush() {
+		boolean asume = true;
+		boolean val;
+		videopoker.hand.add(new Card(1, Suit.HEARTS));
+		videopoker.hand.add(new Card(10, Suit.HEARTS));
+		videopoker.hand.add(new Card(11, Suit.HEARTS));
+		videopoker.hand.add(new Card(12, Suit.HEARTS));
+		videopoker.hand.add(new Card(13, Suit.HEARTS));
+		val = videopoker.isRoyalStraightFlush(videopoker.hand);
+		assertEquals(asume, val);
+	}
 }
