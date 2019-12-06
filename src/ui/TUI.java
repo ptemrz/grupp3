@@ -1,5 +1,6 @@
 package ui;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -35,27 +36,37 @@ public class TUI {
 		System.out.println("# [2] Exit     #");
 		System.out.println(">> Your choice:");
 
-		int menuChoice = s.nextInt();
+		try {
+			int menuChoice = s.nextInt();
 
-		s.nextLine();
+			s.nextLine();
 
-		switch (menuChoice) {
-		case 1:
-			gameLoop();
-			break;
-		case 2:
-			return;
+			System.out.println("");
+
+			switch (menuChoice) {
+			case 1:
+				gameLoop();
+				break;
+			case 2:
+				return;
+			}
+		} catch (InputMismatchException e) {
+			e.printStackTrace();
 		}
 	}
 
 	private void gameLoop() {
 
 		// while (true) {
+
 		vp.resetGame();
-		printCards(vp.getHand());
-		selectCards(vp.getHand());
-		printCards(vp.getHand());
-		confirmHeldCards();
+
+		do {
+			printCards(vp.getHand());
+			selectCards(vp.getHand());
+			printCards(vp.getHand());
+		} while (!confirmHeldCards());
+
 		// vp.holdCards(boolean[] heldCards);
 		// vp.getNewCards();
 		// vp.getPokerHand();
@@ -65,43 +76,72 @@ public class TUI {
 
 	private boolean confirmHeldCards() {
 
-		System.out.println("Are you happy with your selection?\n"
-				+ "[1] YES - I want to hold these cards\n"
-				+ "[2] NO - I want to make a new selection");
+		if (isSelectionMade()) {
 
-		int menuChoice = s.nextInt();
-
-		switch (menuChoice) {
-		case 1:
-			return true;
-		default:
-			return false;
+			System.out.println("Are you happy with your selection?\n"
+					+ "[1] YES - I want to hold these cards\n"
+					+ "[2] NO - I want to make a new selection");
+		} else {
+			System.out.println("No selection made\n"
+					+ "Are you sure you want to change ALL your cards?\n"
+					+ "[1] YES - I want to change ALL five cards\n"
+					+ "[2] NO - I want to select which cards to hold");
 		}
+
+		try {
+
+			int menuChoice = s.nextInt();
+
+			s.nextLine();
+
+			switch (menuChoice) {
+			case 1:
+				return true;
+			default:
+				return false;
+			}
+		} catch (InputMismatchException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	private boolean isSelectionMade() {
+
+		for (boolean b : selectedCards) {
+			if (b) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private void selectCards(List<Card> hand) {
 
 		System.out.println("Which cards do you want to hold?:");
 		String[] selection = s.nextLine().split(" ");
-				
-		for(String position: selection) {
-			
-			if(position.isEmpty()) {
+
+		for (String position : selection) {
+
+			if (position.isEmpty()) {
 				continue;
 			}
+
 			try {
 				int cardIndex = Integer.parseInt(position) - 1;
-				
+
 				if (cardIndex < 0 || cardIndex > hand.size() - 1) {
-					System.err.println("Could not select card " + (cardIndex + 1));
+					System.err.println("\nCould not select card " + (cardIndex + 1));
+					System.out.println();
 				} else {
 					selectedCards[cardIndex] = true;
 				}
-			} catch(Exception e) {
+			} catch (Exception e) {
 				System.err.println("Could not select card " + position);
+				System.out.println();
 			}
 		}
-		
+
 	}
 
 	private void printCards(List<Card> hand) {
