@@ -3,8 +3,6 @@ package vp;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class Videopoker {
 
 	Deck deck = new Deck();
@@ -68,6 +66,25 @@ public class Videopoker {
 	}
 
 	/**
+	 * Checks if the given hand is a Double pair
+	 * 
+	 * @return true if the hand is a JQKA-pair
+	 * @param hand must be a sorted list of cards (assuming sorting by value)
+	 */
+	private boolean isDoublePair(List<Card> hand) {
+		if ((hand.get(0).getValue() == hand.get(1).getValue()) && (hand.get(2).getValue() == hand.get(3).getValue())) {
+			return true;
+		}
+		if ((hand.get(0).getValue() == hand.get(1).getValue()) && (hand.get(3).getValue() == hand.get(4).getValue())) {
+			return true;
+		}
+		if ((hand.get(1).getValue() == hand.get(2).getValue()) && (hand.get(3).getValue() == hand.get(4).getValue())) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	 * Checks if the given hand is a JQKA-pair
 	 * 
 	 * @return true if the hand is a JQKA-pair
@@ -97,6 +114,7 @@ public class Videopoker {
 		}
 		return false;
 	}
+
 	public boolean isFlush() {
 		/**
 		 * Checks if the given hand is a flush
