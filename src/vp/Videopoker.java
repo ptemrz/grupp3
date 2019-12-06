@@ -124,11 +124,11 @@ public class Videopoker {
 		 */	
 		
 		int antalKortMedSammaFÃ¤rg = 0;
-		Suit suitPåFörstaKortet = hand.get(0).getSuit();
+		Suit suitPÃ¥FÃ¶rstaKortet = hand.get(0).getSuit();
 		
 		for(int i = 0; i < hand.size() -1; i++) {
 			
-			if(suitPåFörstaKortet == (hand.get(i).getSuit())){
+			if(suitPÃ¥FÃ¶rstaKortet == (hand.get(i).getSuit())){
 				antalKortMedSammaFÃ¤rg++;
 			}
 			 
