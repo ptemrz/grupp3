@@ -143,6 +143,18 @@ class VideopokerTest {
 		videopoker.hand.add(new Card(11, Suit.HEARTS));
 		videopoker.hand.add(new Card(12, Suit.HEARTS));
 		videopoker.hand.add(new Card(13, Suit.HEARTS));
+		
+		assertEquals(videopoker.getPokerHand(videopoker.hand), KortKombinationer.ROYALSTRAIGHTFLUSH);
+	}
+	
+	@Test
+	void testKortKombinationerOsorteradHand() {
+		videopoker.hand.add(new Card(1, Suit.HEARTS));
+		videopoker.hand.add(new Card(10, Suit.HEARTS));
+		videopoker.hand.add(new Card(11, Suit.HEARTS));
+		videopoker.hand.add(new Card(13, Suit.HEARTS));
+		videopoker.hand.add(new Card(12, Suit.HEARTS));
+		
 		assertEquals(videopoker.getPokerHand(videopoker.hand), KortKombinationer.ROYALSTRAIGHTFLUSH);
 	}
 	
