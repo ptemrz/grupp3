@@ -24,22 +24,27 @@ public class Videopoker {
 			if(i.equals("1")) {
 				hand.remove(0);
 				System.out.println("Välj ett nytt kort.");
+				i = sc.nextLine();
 			}
 			else if(i.equals("2")) {
 				hand.remove(1);
 				System.out.println("Välj ett nytt kort.");
+				i = sc.nextLine();
 			}
 			else if(i.equals("3")) {
 				hand.remove(2);
 				System.out.println("Välj ett nytt kort.");
+				i = sc.nextLine();
 			}
 			else if(i.equals("4")) {
 				hand.remove(3);
 				System.out.println("Välj ett nytt kort.");
+				i = sc.nextLine();
 			}
 			else if(i.equals("5")) {
 				hand.remove(4);
 				System.out.println("Välj ett nytt kort.");
+				i = sc.nextLine();
 			}
 		}
 		
@@ -220,14 +225,10 @@ public class Videopoker {
 	public boolean isStraightFlush(List<Card> hand) {
 
 		int i = 0;
-		if (hand.get(i).getValue() + 1 == (hand.get(i + 1).getValue())
-				&& hand.get(i).getSuit() == hand.get(i + 1).getSuit()) {
-			if (hand.get(i + 1).getValue() + 1 == hand.get(i + 2).getValue()
-					&& hand.get(i + 1).getSuit() == hand.get(i + 2).getSuit()) {
-				if (hand.get(i + 2).getValue() + 1 == hand.get(i + 3).getValue()
-						&& hand.get(i + 2).getSuit() == hand.get(i + 3).getSuit()) {
-					if (hand.get(i + 3).getValue() + 1 == hand.get(i + 4).getValue()
-							&& hand.get(i + 3).getSuit() == hand.get(i + 4).getSuit()) {
+		if (hand.get(i).getValue() + 1 == (hand.get(i + 1).getValue()) && hand.get(i).getSuit() == hand.get(i + 1).getSuit()) {
+			if (hand.get(i + 1).getValue() + 1 == hand.get(i + 2).getValue() && hand.get(i + 1).getSuit() == hand.get(i + 2).getSuit()) {
+				if (hand.get(i + 2).getValue() + 1 == hand.get(i + 3).getValue() && hand.get(i + 2).getSuit() == hand.get(i + 3).getSuit()) {
+					if (hand.get(i + 3).getValue() + 1 == hand.get(i + 4).getValue() && hand.get(i + 3).getSuit() == hand.get(i + 4).getSuit()) {
 						return true;
 					}
 				}
