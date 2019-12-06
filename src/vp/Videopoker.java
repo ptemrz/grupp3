@@ -256,40 +256,39 @@ public class Videopoker {
 	/**
 	 * Checks if the given hand matches any combinations
 	 * 
-	 * @return coresponding value from kortkombinationer (void while coding)
-	 * @param see parameters of all combination-methods
-	 * @return 
+	 * @return corresponding value from kortkombinationer
+	 * @param hand - the list of face-up cards
 	 */	
 	private KortKombinationer getPokerHand(List<Card>hand) {
 		
-		if (isRoyalStraightFlush(hand) == true) {
+		if (isRoyalStraightFlush(hand)) {
 			return KortKombinationer.ROYALSTRAIGHTFLUSH;
 		}
-		else if (isStraightFlush(hand) == true) {
+		else if (isStraightFlush(hand)) {
 			return KortKombinationer.STRAIGHTFLUSH;
 		}
-		else if (isFourOfAKind(hand) == true) {
+		else if (isFourOfAKind(hand)) {
 			return KortKombinationer.FOUROFAKIND;
 		}
-		else if (isFullHouse(hand) == true) {
+		else if (isFullHouse(hand)) {
 			return KortKombinationer.FULLHOUSE;
 		}
-		else if (isFlush(hand) == true) {
+		else if (isFlush(hand)) {
 			return KortKombinationer.FLUSH;
 		}
-		else if (isStraight(hand) == true) {
+		else if (isStraight(hand)) {
 			return KortKombinationer.STRAIGHT;
 		}
-		else if (isThreeOfAKind(hand) == true) {
+		else if (isThreeOfAKind(hand)) {
 			return KortKombinationer.THREEOFAKIND;
 		}
-		else if (isTwoPair(hand) == true) {
+		else if (isTwoPair(hand)) {
 			return KortKombinationer.TWOPAIRS;
 		}
-		else if (isJQKAPair(hand) == true) {
+		else if (isJQKAPair(hand)) {
 			return KortKombinationer.PAIRJQKA;
 		}
-		else if (isPair(hand) == true) {
+		else if (isPair(hand)) {
 			return KortKombinationer.PAIR;
 		}
 		else {
