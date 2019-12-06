@@ -111,7 +111,18 @@ class VideopokerTest {
 		val = videopoker.isStraightFlush(videopoker.hand);
 		assertEquals(asume, val);
 	}
-
+	@Test
+	void testThreeOfAKind() {
+		boolean asume = true;
+		boolean val;
+		videopoker.hand.add(new Card(12, Suit.HEARTS));
+		videopoker.hand.add(new Card(12, Suit.DIAMONDS));
+		videopoker.hand.add(new Card(12, Suit.HEARTS));
+		videopoker.hand.add(new Card(3, Suit.DIAMONDS));
+		videopoker.hand.add(new Card(2, Suit.HEARTS));
+		val = videopoker.isThreeOfAKind(videopoker.hand);
+		assertEquals(asume, val);
+	}
 
 //	@Test
 //	void testFullHouse() {
