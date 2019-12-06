@@ -1,0 +1,4 @@
+DEFINITION OF DONE:
+-Koden ska vara färdigskriven
+-Koden ska vara granskad av hela gruppen
+-Minst ett lyckat test per metod.
