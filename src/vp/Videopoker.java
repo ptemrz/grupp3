@@ -64,10 +64,6 @@ public class Videopoker {
 		return false;
 
 	}
-	
-	private boolean isFourOfAKind(List<Card> hand) {
-		return true;
-	}
 
 	/**
 	 * Checks if the given hand is a Double pair
@@ -75,7 +71,7 @@ public class Videopoker {
 	 * @return true if the hand is a JQKA-pair
 	 * @param hand must be a sorted list of cards (assuming sorting by value)
 	 */
-	private boolean isDoublePair(List<Card> hand) {
+	private boolean isTwoPair(List<Card> hand) {
 		if ((hand.get(0).getValue() == hand.get(1).getValue()) && (hand.get(2).getValue() == hand.get(3).getValue())) {
 			return true;
 		}
@@ -119,8 +115,7 @@ public class Videopoker {
 		return false;
 	}
 
-	public boolean isFlush(List<Card> hand) {
-
+	public boolean isFlush() {
 		/**
 		 * Checks if the given hand is a flush
 		 * 
@@ -219,5 +214,35 @@ public class Videopoker {
 	 */	
 	private void getPokerHand(List<Card>hand) {
 		
+		if (isRoyalStraightFlush(hand) == true) {
+			
+		}
+		else if (isStraightFlush(hand) == true) {
+			
+		}
+		else if (isFourOfAKind(hand) == true) {
+			
+		}
+		else if (isFullHouse(hand) == true) {
+			
+		}
+		else if (isFlush(hand) == true) {
+			
+		}
+		else if (isStraight(hand) == true) {
+			
+		}
+		else if (isThreeOfAKind(hand) == true) {
+			
+		}
+		else if (isTwoPair(hand) == true) {
+			
+		}
+		else if (isJQKAPair(hand) == true) {
+			
+		}
+		else if (isPair(hand) == true) {
+			
+		}
 	}
 }
