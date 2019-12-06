@@ -29,31 +29,36 @@ public class TUI {
 
 	private void mainMenu() {
 
-		System.out.println("################\n" +
-				"# Video poker! #\n" +
-				"################");
+		boolean stayInMainMenu = true;
+		while (stayInMainMenu) {
 
-		System.out.println("# Main Menu    #");
-		System.out.println("# [1] New Game #");
-		System.out.println("# [2] Exit     #");
-		System.out.println(">> Your choice:");
+			System.out.println("################\n" +
+					"# Video poker! #\n" +
+					"################");
 
-		try {
-			int menuChoice = s.nextInt();
+			System.out.println("# Main Menu    #");
+			System.out.println("# [1] New Game #");
+			System.out.println("# [2] Exit     #");
+			System.out.println(">> Your choice:");
 
-			s.nextLine();
+			try {
+				int menuChoice = s.nextInt();
 
-			System.out.println("");
+				s.nextLine();
 
-			switch (menuChoice) {
-			case 1:
-				gameLoop();
-				break;
-			case 2:
-				return;
+				System.out.println("");
+
+				switch (menuChoice) {
+				case 1:
+					gameLoop();
+					break;
+				case 2:
+					stayInMainMenu = false;
+					;
+				}
+			} catch (InputMismatchException e) {
+				e.printStackTrace();
 			}
-		} catch (InputMismatchException e) {
-			e.printStackTrace();
 		}
 	}
 
@@ -62,6 +67,7 @@ public class TUI {
 		while (true) {
 
 			vp.resetGame();
+			resetSelection();
 
 			do {
 				printCards(vp.getHand());
@@ -70,8 +76,8 @@ public class TUI {
 			} while (!confirmHeldCards());
 
 			printPokerHand(vp.getPokerHand(vp.getHand()));
-			
-			if(!keepPlaying()) {
+
+			if (!keepPlaying()) {
 				break;
 			}
 		}
@@ -80,6 +86,12 @@ public class TUI {
 		// vp.getPokerHand();
 		//
 		// }
+	}
+	
+	private void resetSelection() {
+		for (boolean b : selectedCards) {
+			b = false;
+		}
 	}
 
 	private boolean keepPlaying() {
@@ -165,7 +177,7 @@ public class TUI {
 		System.out.println("Which cards do you want to hold?:");
 		String[] selection = s.nextLine().split(" ");
 		System.out.println();
-		
+
 		for (String position : selection) {
 
 			if (position.isEmpty()) {
