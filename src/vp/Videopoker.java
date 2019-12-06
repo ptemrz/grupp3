@@ -66,6 +66,10 @@ public class Videopoker {
 		return false;
 
 	}
+	
+	private boolean isFourOfAKind(List<Card> hand) {
+		return true;
+	}
 
 	/**
 	 * Checks if the given hand is a JQKA-pair
@@ -97,7 +101,7 @@ public class Videopoker {
 		}
 		return false;
 	}
-	public boolean isFlush() {
+	public boolean isFlush(List<Card> hand) {
 		/**
 		 * Checks if the given hand is a flush
 		 * 
