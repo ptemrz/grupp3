@@ -2,12 +2,49 @@ package vp;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Videopoker {
 
 	Deck deck = new Deck();
 
 	List<Card> hand = new ArrayList<>();
+	
+	public void keepTheseCards() {
+		
+		System.out.println("Vilket kort vill du slänga? Välj kortet genom att skriva ett tal mellan 1 till 5. Skriv exit för att fortsätta");
+		
+		Scanner sc = new Scanner(System.in);
+		String i = sc.nextLine();
+		String e = "exit";
+		while(!i.equals(e)) {
+			if(hand.size() == 0) {
+				i = "exit";
+			}
+			if(i.equals("1")) {
+				hand.remove(0);
+				System.out.println("Välj ett nytt kort.");
+			}
+			if(i.equals("2")) {
+				hand.remove(1);
+				System.out.println("Välj ett nytt kort.");
+			}
+			if(i.equals("3")) {
+				hand.remove(2);
+				System.out.println("Välj ett nytt kort.");
+			}
+			if(i.equals("4")) {
+				hand.remove(3);
+				System.out.println("Välj ett nytt kort.");
+			}
+			if(i.equals("5")) {
+				hand.remove(4);
+				System.out.println("Välj ett nytt kort.");
+			}
+		}
+		
+		
+	}
 	
 	public void fillHandWithCards() {
 		while(hand.size() < 5) {
@@ -158,10 +195,10 @@ public class Videopoker {
 	public boolean isStraight(List<Card> hand) {
 
 		int i = 0;
-		if (hand.get(i).getValue() == hand.get(i + 1).getValue() + 1) {
-			if (hand.get(i + 1).getValue() == hand.get(i + 2).getValue() + 1) {
-				if (hand.get(i + 2).getValue() == hand.get(i + 3).getValue() + 1) {
-					if (hand.get(i + 3).getValue() == hand.get(i + 4).getValue() + 1) {
+		if (hand.get(i).getValue() + 1 == hand.get(i + 1).getValue()) {
+			if (hand.get(i + 1).getValue() + 1 == hand.get(i + 2).getValue()) {
+				if (hand.get(i + 2).getValue() + 1 == hand.get(i + 3).getValue()) {
+					if (hand.get(i + 3).getValue() + 1 == hand.get(i + 4).getValue()) {
 						return true;
 					}
 				}
