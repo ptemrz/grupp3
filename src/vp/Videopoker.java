@@ -118,7 +118,7 @@ public class Videopoker {
 	 * @return true if the hand is a JQKA-pair
 	 * @param hand must be a sorted list of cards (assuming sorting by value)
 	 */
-	private boolean isTwoPair(List<Card> hand) {
+	public boolean isTwoPair(List<Card> hand) {
 		if ((hand.get(0).getValue() == hand.get(1).getValue()) && (hand.get(2).getValue() == hand.get(3).getValue())) {
 			return true;
 		}
@@ -137,7 +137,7 @@ public class Videopoker {
 	 * @return true if the hand is a JQKA-pair
 	 * @param hand must be a sorted list of cards (assuming sorting by value)
 	 */
-	private boolean isJQKAPair(List<Card> hand) {
+	public boolean isJQKAPair(List<Card> hand) {
 		for (int i = 0; i < hand.size(); i++) {
 			if (hand.get(i).getValue() == (hand.get(i + 1).getValue()) && hand.get(i).getValue() > 10) {
 				return true;
@@ -173,7 +173,7 @@ public class Videopoker {
 		int antalKortMedSammaFärg = 0;
 		Suit suitPåFörstaKortet = hand.get(0).getSuit();
 		
-		for(int i = 0; i < hand.size() -1; i++) {
+		for(int i = 0; i < hand.size(); i++) {
 			
 			if(suitPåFörstaKortet == (hand.get(i).getSuit())){
 				antalKortMedSammaFärg++;
