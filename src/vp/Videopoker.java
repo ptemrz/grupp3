@@ -141,7 +141,7 @@ public class Videopoker {
 	 * @param hand must be a sorted list of cards (assuming sorting by value)
 	 */
 	public boolean isJQKAPair(List<Card> hand) {
-		for (int i = 0; i < hand.size(); i++) {
+		for (int i = 0; i < (hand.size()-1); i++) {
 			if (hand.get(i).getValue() == (hand.get(i + 1).getValue()) && hand.get(i).getValue() > 10) {
 				return true;
 			}
