@@ -64,7 +64,7 @@ public class Videopoker {
 		return false;
 
 	}
-	
+
 	/**
 	 * Checks if the given hand is a JQKA-pair
 	 * 
@@ -72,13 +72,13 @@ public class Videopoker {
 	 * @param hand must be a sorted list of cards (assuming sorting by value)
 	 */
 	private boolean isJQKAPair(List<Card> hand) {
-	for (int i = 0; i < hand.size(); i++) {
-		if (hand.get(i).equals(hand.get(i + 1)) && hand.get(i).getValue()>10) {
-			return true;
-		} 
+		for (int i = 0; i < hand.size(); i++) {
+			if (hand.get(i).getValue() == (hand.get(i + 1).getValue()) && hand.get(i).getValue() > 10) {
+				return true;
+			}
+		}
+		return false;
 	}
-	return false;
-}
 
 	/**
 	 * Checks if the given hand is a pair
@@ -88,7 +88,7 @@ public class Videopoker {
 	 */
 	private boolean isPair(List<Card> hand) {
 		for (int i = 0; i < (hand.size() - 1); i++) {
-			if (hand.get(i) == (hand.get(i + 1))) {
+			if (hand.get(i).getValue() == (hand.get(i + 1).getValue())) {
 				return true;
 			}
 
