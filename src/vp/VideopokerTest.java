@@ -124,16 +124,16 @@ class VideopokerTest {
 		assertEquals(asume, val);
 	}
 
-//	@Test
-//	void testFullHouse() {
-//		boolean asume = true;
-//		boolean val;
-//		videopoker.hand.add(new Card(10, Suit.HEARTS));
-//		videopoker.hand.add(new Card(10, Suit.HEARTS));
-//		videopoker.hand.add(new Card(10, Suit.HEARTS));
-//		videopoker.hand.add(new Card(2, Suit.HEARTS));
-//		videopoker.hand.add(new Card(2, Suit.HEARTS));
-//		val = videopoker.isFullHouse(videopoker.hand);
-//		assertEquals(asume, val);
-//	}
+	@Test
+	void testFullHouse() {
+		boolean asume = true;
+		boolean val;
+		videopoker.hand.add(new Card(2, Suit.HEARTS));
+		videopoker.hand.add(new Card(2, Suit.HEARTS));
+		videopoker.hand.add(new Card(3, Suit.HEARTS));
+		videopoker.hand.add(new Card(3, Suit.HEARTS));
+		videopoker.hand.add(new Card(3, Suit.HEARTS));
+		val = videopoker.isFullHouse(videopoker.hand);
+		assertEquals(asume, val);
+	}
 }

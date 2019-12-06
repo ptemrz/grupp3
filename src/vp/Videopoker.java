@@ -81,7 +81,7 @@ public class Videopoker {
 			return false;
 		}
 
-		if (!(hand.get(3).getValue() == hand.get(2).getValue()) || hand.get(2).getValue() == hand.get(1).getValue()) {
+		if (!(hand.get(3).getValue() == hand.get(2).getValue()) && !(hand.get(2).getValue() == hand.get(1).getValue())) {
 			return false;
 		}
 
