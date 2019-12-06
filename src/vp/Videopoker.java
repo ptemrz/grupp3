@@ -211,38 +211,42 @@ public class Videopoker {
 	 * 
 	 * @return coresponding value from kortkombinationer (void while coding)
 	 * @param see parameters of all combination-methods
+	 * @return 
 	 */	
-	private void getPokerHand(List<Card>hand) {
+	private KortKombinationer getPokerHand(List<Card>hand) {
 		
 		if (isRoyalStraightFlush(hand) == true) {
-			
+			return KortKombinationer.ROYALSTRAIGHTFLUSH;
 		}
 		else if (isStraightFlush(hand) == true) {
-			
+			return KortKombinationer.STRAIGHTFLUSH;
 		}
 		else if (isFourOfAKind(hand) == true) {
-			
+			return KortKombinationer.FOUROFAKIND;
 		}
 		else if (isFullHouse(hand) == true) {
-			
+			return KortKombinationer.FULLHOUSE;
 		}
 		else if (isFlush(hand) == true) {
-			
+			return KortKombinationer.FLUSH;
 		}
 		else if (isStraight(hand) == true) {
-			
+			return KortKombinationer.STRAIGHT;
 		}
 		else if (isThreeOfAKind(hand) == true) {
-			
+			return KortKombinationer.THREEOFAKIND;
 		}
 		else if (isTwoPair(hand) == true) {
-			
+			return KortKombinationer.TWOPAIRS;
 		}
 		else if (isJQKAPair(hand) == true) {
-			
+			return KortKombinationer.PAIRJQKA;
 		}
 		else if (isPair(hand) == true) {
-			
+			return KortKombinationer.PAIR;
+		}
+		else {
+			return null;
 		}
 	}
 }
