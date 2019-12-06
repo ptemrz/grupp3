@@ -12,7 +12,6 @@ public class Videopoker {
 	
 	public void keepTheseCards() {
 		
-		System.out.println("Vilket kort vill du slänga? Välj kortet genom att skriva ett tal mellan 1 till 5. Skriv exit för att fortsätta");
 		
 		Scanner sc = new Scanner(System.in);
 		String i = sc.nextLine();
@@ -23,27 +22,22 @@ public class Videopoker {
 			}
 			if(i.equals("1")) {
 				hand.remove(0);
-				System.out.println("Välj ett nytt kort.");
 				i = sc.nextLine();
 			}
 			else if(i.equals("2")) {
 				hand.remove(1);
-				System.out.println("Välj ett nytt kort.");
 				i = sc.nextLine();
 			}
 			else if(i.equals("3")) {
 				hand.remove(2);
-				System.out.println("Välj ett nytt kort.");
 				i = sc.nextLine();
 			}
 			else if(i.equals("4")) {
 				hand.remove(3);
-				System.out.println("Välj ett nytt kort.");
 				i = sc.nextLine();
 			}
 			else if(i.equals("5")) {
 				hand.remove(4);
-				System.out.println("Välj ett nytt kort.");
 				i = sc.nextLine();
 			}
 		}
@@ -77,7 +71,7 @@ public class Videopoker {
 	 * @param hand must be a sorted list of cards
 	 */
 	public boolean isFullHouse(List<Card> hand) {
-
+		
 		if (!(hand.get(0).getValue() == hand.get(1).getValue())) {
 			return false;
 		}
@@ -86,7 +80,7 @@ public class Videopoker {
 			return false;
 		}
 
-		if (!(hand.get(3).getValue() == hand.get(2).getValue()) && !(hand.get(2).getValue() == hand.get(1).getValue())) {
+		if (!(hand.get(3).getValue() == hand.get(2).getValue()) || hand.get(2).getValue() == hand.get(1).getValue()) {
 			return false;
 		}
 
