@@ -215,13 +215,13 @@ public class Videopoker {
 	public boolean isStraightFlush(List<Card> hand) {
 
 		int i = 0;
-		if (hand.get(i).getValue() == (hand.get(i + 1).getValue() + 1)
+		if (hand.get(i).getValue() + 1 == (hand.get(i + 1).getValue())
 				&& hand.get(i).getSuit() == hand.get(i + 1).getSuit()) {
-			if (hand.get(i + 1).getValue() == hand.get(i + 2).getValue() + 1
+			if (hand.get(i + 1).getValue() + 1 == hand.get(i + 2).getValue()
 					&& hand.get(i + 1).getSuit() == hand.get(i + 2).getSuit()) {
-				if (hand.get(i + 2).getValue() == hand.get(i + 3).getValue() + 1
+				if (hand.get(i + 2).getValue() + 1 == hand.get(i + 3).getValue()
 						&& hand.get(i + 2).getSuit() == hand.get(i + 3).getSuit()) {
-					if (hand.get(i + 3).getValue() == hand.get(i + 4).getValue() + 1
+					if (hand.get(i + 3).getValue() + 1 == hand.get(i + 4).getValue()
 							&& hand.get(i + 3).getSuit() == hand.get(i + 4).getSuit()) {
 						return true;
 					}
