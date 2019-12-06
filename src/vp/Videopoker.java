@@ -65,6 +65,10 @@ public class Videopoker {
 			hand.add(deck.draw());
 		}
 	}
+	
+	public List<Card> getHand() {
+		return hand;
+	}
 
 	/**
 	 * Checks if the given hand is a full house
@@ -99,7 +103,7 @@ public class Videopoker {
 	 * @return true if the hand is a three of a kind
 	 * @param hand must be a sorted list of cards (assuming sorting by value)
 	 */
-	private boolean isThreeOfAKind(List<Card> hand) {
+	public boolean isThreeOfAKind(List<Card> hand) {
 
 		if (hand.get(0).getValue() == hand.get(1).getValue() && hand.get(0).getValue() == hand.get(2).getValue()) {
 			return true;
@@ -175,17 +179,17 @@ public class Videopoker {
 		 * @param hand must be a sorted list of cards (assuming sorting by value)
 		 */	
 		
-		int antalKortMedSammaFärg = 0;
+		int cardsWithSameColor = 0;
 		Suit sameSuit = hand.get(0).getSuit();
 		
 		for(int i = 0; i < hand.size(); i++) {
 			
 			if(sameSuit == (hand.get(i).getSuit())){
-				antalKortMedSammaFärg++;
+				cardsWithSameColor++;
 			}
 			 
 		}
-		if (antalKortMedSammaFärg == 5) {
+		if (cardsWithSameColor == 5) {
 			return true; 
 					} else {
 						return false;
