@@ -259,7 +259,7 @@ public class Videopoker {
 	 * @return corresponding value from kortkombinationer
 	 * @param hand - the list of face-up cards
 	 */	
-	private KortKombinationer getPokerHand(List<Card>hand) {
+	public KortKombinationer getPokerHand(List<Card>hand) {
 		
 		if (isRoyalStraightFlush(hand)) {
 			return KortKombinationer.ROYALSTRAIGHTFLUSH;
