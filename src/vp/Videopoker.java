@@ -25,19 +25,19 @@ public class Videopoker {
 				hand.remove(0);
 				System.out.println("Välj ett nytt kort.");
 			}
-			if(i.equals("2")) {
+			else if(i.equals("2")) {
 				hand.remove(1);
 				System.out.println("Välj ett nytt kort.");
 			}
-			if(i.equals("3")) {
+			else if(i.equals("3")) {
 				hand.remove(2);
 				System.out.println("Välj ett nytt kort.");
 			}
-			if(i.equals("4")) {
+			else if(i.equals("4")) {
 				hand.remove(3);
 				System.out.println("Välj ett nytt kort.");
 			}
-			if(i.equals("5")) {
+			else if(i.equals("5")) {
 				hand.remove(4);
 				System.out.println("Välj ett nytt kort.");
 			}
