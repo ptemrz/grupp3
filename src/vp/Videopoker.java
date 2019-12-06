@@ -17,6 +17,10 @@ public class Videopoker {
 			hand.add(deck.draw());
 		}
 	}
+	
+	public List<Card> getHand() {
+		return hand;
+	}
 
 	/**
 	 * Checks if the given hand is a full house
