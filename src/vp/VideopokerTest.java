@@ -39,14 +39,14 @@ class VideopokerTest {
 	@Test
 	void testIsFlush() {
 
-		boolean ärDetFärg = true;
+		boolean asume = true;
 		videopoker.hand.add(new Card(1, Suit.HEARTS));
 		videopoker.hand.add(new Card(5, Suit.HEARTS));
 		videopoker.hand.add(new Card(3, Suit.HEARTS));
 		videopoker.hand.add(new Card(6, Suit.HEARTS));
 		videopoker.hand.add(new Card(2, Suit.HEARTS));
 
-		assertEquals(ärDetFärg, videopoker.isFlush(videopoker.hand));
+		assertEquals(asume, videopoker.isFlush(videopoker.hand));
 	}
 
 	@Test
