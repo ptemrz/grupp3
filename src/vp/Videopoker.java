@@ -60,6 +60,10 @@ public class Videopoker {
 			hand.add(deck.draw());
 		}
 	}
+	
+	public List<Card> getHand() {
+		return hand;
+	}
 
 	/**
 	 * Checks if the given hand is a full house
@@ -170,17 +174,17 @@ public class Videopoker {
 		 * @param hand must be a sorted list of cards (assuming sorting by value)
 		 */	
 		
-		int antalKortMedSammaFÃ¤rg = 0;
-		Suit suitPåFörstaKortet = hand.get(0).getSuit();
+		int cardsWithSameColor = 0;
+		Suit sameSuit = hand.get(0).getSuit();
 		
 		for(int i = 0; i < hand.size(); i++) {
 			
-			if(suitPåFörstaKortet == (hand.get(i).getSuit())){
-				antalKortMedSammaFÃ¤rg++;
+			if(sameSuit == (hand.get(i).getSuit())){
+				cardsWithSameColor++;
 			}
 			 
 		}
-		if (antalKortMedSammaFÃ¤rg == 5) {
+		if (cardsWithSameColor == 5) {
 			return true; 
 					} else {
 						return false;
