@@ -209,9 +209,8 @@ public class Videopoker {
 	/**
 	 * Checks if the given hand matches any combinations
 	 * 
-	 * @return coresponding value from kortkombinationer
+	 * @return coresponding value from kortkombinationer (void while coding)
 	 * @param see parameters of all combination-methods
-	 * @return void while working (TO BE CHANGED)
 	 */	
 	private void getPokerHand(List<Card>hand) {
 		
