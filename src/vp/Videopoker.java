@@ -12,7 +12,6 @@ public class Videopoker {
 	
 	public void keepTheseCards() {
 		
-		System.out.println("Vilket kort vill du slänga? Välj kortet genom att skriva ett tal mellan 1 till 5. Skriv exit för att fortsätta");
 		
 		Scanner sc = new Scanner(System.in);
 		String i = sc.nextLine();
@@ -23,27 +22,22 @@ public class Videopoker {
 			}
 			if(i.equals("1")) {
 				hand.remove(0);
-				System.out.println("Välj ett nytt kort.");
 				i = sc.nextLine();
 			}
 			else if(i.equals("2")) {
 				hand.remove(1);
-				System.out.println("Välj ett nytt kort.");
 				i = sc.nextLine();
 			}
 			else if(i.equals("3")) {
 				hand.remove(2);
-				System.out.println("Välj ett nytt kort.");
 				i = sc.nextLine();
 			}
 			else if(i.equals("4")) {
 				hand.remove(3);
-				System.out.println("Välj ett nytt kort.");
 				i = sc.nextLine();
 			}
 			else if(i.equals("5")) {
 				hand.remove(4);
-				System.out.println("Välj ett nytt kort.");
 				i = sc.nextLine();
 			}
 		}
@@ -77,7 +71,7 @@ public class Videopoker {
 	 * @param hand must be a sorted list of cards
 	 */
 	public boolean isFullHouse(List<Card> hand) {
-
+		
 		if (!(hand.get(0).getValue() == hand.get(1).getValue())) {
 			return false;
 		}
@@ -86,7 +80,7 @@ public class Videopoker {
 			return false;
 		}
 
-		if (!(hand.get(3).getValue() == hand.get(2).getValue()) && !(hand.get(2).getValue() == hand.get(1).getValue())) {
+		if (!(hand.get(3).getValue() == hand.get(2).getValue()) || hand.get(2).getValue() == hand.get(1).getValue()) {
 			return false;
 		}
 
@@ -94,7 +88,7 @@ public class Videopoker {
 	}
 	
 	private boolean isFourOfAKind(List<Card> hand) {
-		return true;
+		return false;
 	}
 
 	/**
@@ -262,40 +256,39 @@ public class Videopoker {
 	/**
 	 * Checks if the given hand matches any combinations
 	 * 
-	 * @return coresponding value from kortkombinationer (void while coding)
-	 * @param see parameters of all combination-methods
-	 * @return 
+	 * @return corresponding value from kortkombinationer
+	 * @param hand - the list of face-up cards
 	 */	
 	public KortKombinationer getPokerHand(List<Card>hand) {
 		
-		if (isRoyalStraightFlush(hand) == true) {
+		if (isRoyalStraightFlush(hand)) {
 			return KortKombinationer.ROYALSTRAIGHTFLUSH;
 		}
-		else if (isStraightFlush(hand) == true) {
+		else if (isStraightFlush(hand)) {
 			return KortKombinationer.STRAIGHTFLUSH;
 		}
-		else if (isFourOfAKind(hand) == true) {
+		else if (isFourOfAKind(hand)) {
 			return KortKombinationer.FOUROFAKIND;
 		}
-		else if (isFullHouse(hand) == true) {
+		else if (isFullHouse(hand)) {
 			return KortKombinationer.FULLHOUSE;
 		}
-		else if (isFlush(hand) == true) {
+		else if (isFlush(hand)) {
 			return KortKombinationer.FLUSH;
 		}
-		else if (isStraight(hand) == true) {
+		else if (isStraight(hand)) {
 			return KortKombinationer.STRAIGHT;
 		}
-		else if (isThreeOfAKind(hand) == true) {
+		else if (isThreeOfAKind(hand)) {
 			return KortKombinationer.THREEOFAKIND;
 		}
-		else if (isTwoPair(hand) == true) {
+		else if (isTwoPair(hand)) {
 			return KortKombinationer.TWOPAIRS;
 		}
-		else if (isJQKAPair(hand) == true) {
+		else if (isJQKAPair(hand)) {
 			return KortKombinationer.PAIRJQKA;
 		}
-		else if (isPair(hand) == true) {
+		else if (isPair(hand)) {
 			return KortKombinationer.PAIR;
 		}
 		else {
