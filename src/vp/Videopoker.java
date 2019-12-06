@@ -30,7 +30,7 @@ public class Videopoker {
 	 * @return true if the hand is a full house
 	 * @param hand must be a sorted list of cards
 	 */
-	private boolean isFullHouse(List<Card> hand) {
+	public boolean isFullHouse(List<Card> hand) {
 
 		if (!(hand.get(0).getValue() == hand.get(1).getValue())) {
 			return false;
@@ -134,11 +134,11 @@ public class Videopoker {
 		 */	
 		
 		int antalKortMedSammaFÃ¤rg = 0;
-		Suit suitPÃ¥FÃ¶rstaKortet = hand.get(0).getSuit();
+		Suit suitPåFörstaKortet = hand.get(0).getSuit();
 		
 		for(int i = 0; i < hand.size() -1; i++) {
 			
-			if(suitPÃ¥FÃ¶rstaKortet == (hand.get(i).getSuit())){
+			if(suitPåFörstaKortet == (hand.get(i).getSuit())){
 				antalKortMedSammaFÃ¤rg++;
 			}
 			 
@@ -158,6 +158,7 @@ public class Videopoker {
 	public boolean isStraight(List<Card> hand) {
 
 		int i = 0;
+		System.out.println(hand.get(i + 1).getValue() + 1);
 		if (hand.get(i).getValue() == hand.get(i + 1).getValue() + 1) {
 			if (hand.get(i + 1).getValue() == hand.get(i + 2).getValue() + 1) {
 				if (hand.get(i + 2).getValue() == hand.get(i + 3).getValue() + 1) {
