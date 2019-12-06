@@ -1,5 +1,5 @@
 DEFINITION OF DONE:
 -Koden ska vara färdigskriven
--Koden ska vara granskad av hela gruppen
+-Koden ska vara granskad minst 2 personer
 -Minst ett lyckat test per metod.
 -Spelet ska kompilera och vara spelbart
