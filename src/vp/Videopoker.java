@@ -250,7 +250,7 @@ public class Videopoker {
 			return KortKombinationer.PAIR;
 		}
 		else {
-			return null;
+			return KortKombinationer.EMPTY;
 		}
 	}
 }
