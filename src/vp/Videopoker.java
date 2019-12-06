@@ -136,7 +136,7 @@ public class Videopoker {
 		int antalKortMedSammaFärg = 0;
 		Suit suitPåFörstaKortet = hand.get(0).getSuit();
 		
-		for(int i = 0; i < hand.size() -1; i++) {
+		for(int i = 0; i < hand.size(); i++) {
 			
 			if(suitPåFörstaKortet == (hand.get(i).getSuit())){
 				antalKortMedSammaFärg++;
