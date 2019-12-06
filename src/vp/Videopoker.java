@@ -98,7 +98,7 @@ public class Videopoker {
 	 * @return true if the hand is a three of a kind
 	 * @param hand must be a sorted list of cards (assuming sorting by value)
 	 */
-	private boolean isThreeOfAKind(List<Card> hand) {
+	public boolean isThreeOfAKind(List<Card> hand) {
 
 		if (hand.get(0).getValue() == hand.get(1).getValue() && hand.get(0).getValue() == hand.get(2).getValue()) {
 			return true;
