@@ -124,11 +124,39 @@ public class TUI {
 		String hand = pokerHand.name().toLowerCase();
 
 		switch (pokerHand) {
+
+		case EMPTY:
+			hand = "nothing";
+			break;
+		case PAIR:
+			hand = "a pair";
+			break;
 		case PAIRJQKA:
 			hand = "a royal pair";
 			break;
-		case EMPTY:
-			hand = "nothing";
+		case TWOPAIRS:
+			hand = "two pairs";
+			break;
+		case THREEOFAKIND:
+			hand = "three of a kind";
+			break;
+		case STRAIGHT:
+			hand = "a straight";
+			break;
+		case FLUSH:
+			hand = "a flush";
+			break;
+		case FULLHOUSE:
+			hand = "a full house";
+			break;
+		case FOUROFAKIND:
+			hand = "four of a kind";
+			break;
+		case STRAIGHTFLUSH:
+			hand = "a straight flush";
+			break;
+		case ROYALSTRAIGHTFLUSH:
+			hand = "a ROYAL straight flush";
 			break;
 		}
 
