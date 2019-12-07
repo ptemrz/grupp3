@@ -10,31 +10,18 @@ public class Videopoker {
 
 	List<Card> hand = new ArrayList<>();
 
-	public void keepTheseCards() {
+	public void holdCards (boolean[] selectedCards) {
 
-		Scanner sc = new Scanner(System.in);
-		String i = sc.nextLine();
-		String e = "exit";
-		while (!i.equals(e)) {
-			if (hand.size() == 0) {
-				i = "exit";
+		Card[] toRemove = new Card[5];
+		
+		for (int i = 0; i < selectedCards.length; i ++) {
+			if(!selectedCards[i]) {
+				toRemove[i] = hand.get(i);
 			}
-			if (i.equals("1")) {
-				hand.remove(0);
-				i = sc.nextLine();
-			} else if (i.equals("2")) {
-				hand.remove(1);
-				i = sc.nextLine();
-			} else if (i.equals("3")) {
-				hand.remove(2);
-				i = sc.nextLine();
-			} else if (i.equals("4")) {
-				hand.remove(3);
-				i = sc.nextLine();
-			} else if (i.equals("5")) {
-				hand.remove(4);
-				i = sc.nextLine();
-			}
+		}
+		
+		for (Card card : toRemove) {
+			hand.remove(card);
 		}
 
 	}
@@ -278,11 +265,11 @@ public class Videopoker {
 					sortedHand.add(new Card(hand.get(i).getValue(), hand.get(i).getSuit()));
 					break;
 				}
-				
+
 				j++;
 			}
 		}
-		
+
 		return sortedHand;
 	}
 
@@ -291,41 +278,32 @@ public class Videopoker {
 	 * 
 	 * @return corresponding value from kortkombinationer
 	 * @param hand - the list of face-up cards
-	 */	
-	public KortKombinationer getPokerHand(List<Card>hand) {
+	 */
+	public KortKombinationer getPokerHand(List<Card> hand) {
+
 		List<Card> sortedHand = sortHand();
-		
+
 		if (isRoyalStraightFlush(sortedHand)) {
 			return KortKombinationer.ROYALSTRAIGHTFLUSH;
-		}
-		else if (isStraightFlush(sortedHand)) {
+		} else if (isStraightFlush(sortedHand)) {
 			return KortKombinationer.STRAIGHTFLUSH;
-		}
-		else if (isFourOfAKind(sortedHand)) {
+		} else if (isFourOfAKind(sortedHand)) {
 			return KortKombinationer.FOUROFAKIND;
-		}
-		else if (isFullHouse(sortedHand)) {
+		} else if (isFullHouse(sortedHand)) {
 			return KortKombinationer.FULLHOUSE;
-		}
-		else if (isFlush(sortedHand)) {
+		} else if (isFlush(sortedHand)) {
 			return KortKombinationer.FLUSH;
-		}
-		else if (isStraight(sortedHand)) {
+		} else if (isStraight(sortedHand)) {
 			return KortKombinationer.STRAIGHT;
-		}
-		else if (isThreeOfAKind(sortedHand)) {
+		} else if (isThreeOfAKind(sortedHand)) {
 			return KortKombinationer.THREEOFAKIND;
-		}
-		else if (isTwoPair(sortedHand)) {
+		} else if (isTwoPair(sortedHand)) {
 			return KortKombinationer.TWOPAIRS;
-		}
-		else if (isJQKAPair(sortedHand)) {
+		} else if (isJQKAPair(sortedHand)) {
 			return KortKombinationer.PAIRJQKA;
-		}
-		else if (isPair(sortedHand)) {
+		} else if (isPair(sortedHand)) {
 			return KortKombinationer.PAIR;
-		}
-		else {
+		} else {
 			return KortKombinationer.EMPTY;
 		}
 	}
