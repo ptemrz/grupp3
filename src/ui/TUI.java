@@ -1,6 +1,5 @@
 package ui;
 
-import java.io.InputStream;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -67,30 +66,32 @@ public class TUI {
 		while (true) {
 
 			vp.resetGame();
-			resetSelection();
 
 			do {
+				resetSelection();
 				printCards(vp.getHand());
 				selectCards(vp.getHand());
 				printCards(vp.getHand());
 			} while (!confirmHeldCards());
 
+			vp.holdCards(selectedCards);
+			vp.fillHandWithCards();
+
+			resetSelection();
+
+			printCards(vp.getHand());
 			printPokerHand(vp.getPokerHand(vp.getHand()));
 
 			if (!keepPlaying()) {
 				break;
 			}
 		}
-		// vp.holdCards(boolean[] heldCards);
-		// vp.getNewCards();
-		// vp.getPokerHand();
-		//
-		// }
 	}
-	
+
 	private void resetSelection() {
-		for (boolean b : selectedCards) {
-			b = false;
+
+		for (int i = 0; i < selectedCards.length; i++) {
+			selectedCards[i] = false;
 		}
 	}
 
@@ -122,11 +123,16 @@ public class TUI {
 
 		String hand = pokerHand.name().toLowerCase();
 
-		if (pokerHand == KortKombinationer.PAIRJQKA) {
-			hand = "royal pair";
+		switch (pokerHand) {
+		case PAIRJQKA:
+			hand = "a royal pair";
+			break;
+		case EMPTY:
+			hand = "nothing";
+			break;
 		}
 
-		System.out.println("You got " + hand);
+		System.out.println("You got " + hand + "!\n");
 
 	}
 
