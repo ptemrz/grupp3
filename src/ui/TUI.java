@@ -25,8 +25,9 @@ public class TUI {
 
 		mainMenu();
 	}
-	
+
 	private void prompt() {
+
 		System.out.print(">> ");
 		System.out.flush();
 	}
@@ -44,7 +45,7 @@ public class TUI {
 			System.out.println("# [1] New Game #");
 			System.out.println("# [2] Exit     #");
 			System.out.println(">> Your choice:");
-			
+
 			prompt();
 
 			try {
@@ -64,10 +65,16 @@ public class TUI {
 					;
 				}
 			} catch (InputMismatchException e) {
-				System.err.println("Bad input.");
-				System.out.println();
+				onInputMismatchException();
 			}
 		}
+	}
+
+	private void onInputMismatchException() {
+
+		System.err.println("Bad input.");
+		System.out.println();
+		s.nextLine();
 	}
 
 	private void gameLoop() {
@@ -106,30 +113,31 @@ public class TUI {
 
 	private boolean keepPlaying() {
 
-		System.out.println("Do you want to keep playing?\n" +
-				"[1] Yes - play another hand\n" +
-				"[2] NO - Quit the game");
-		
-		prompt();
-		
-		try {
-			int menuChoice = s.nextInt();
+		while (true) {
+			System.out.println("Do you want to keep playing?\n" +
+					"[1] Yes - play another hand\n" +
+					"[2] NO - Quit the game");
 
-			s.nextLine();
+			prompt();
 
-			System.out.println();
+			try {
+				int menuChoice = s.nextInt();
 
-			switch (menuChoice) {
-			case 1:
-				return true;
-			default:
-				return false;
+				s.nextLine();
+
+				System.out.println();
+
+				switch (menuChoice) {
+				case 1:
+					return true;
+				default:
+					return false;
+				}
+			} catch (InputMismatchException e) {
+				onInputMismatchException();
+				continue;
 			}
-		} catch (InputMismatchException e) {
-			System.out.println("Bad input.");
-			System.out.println();
 		}
-		return false;
 	}
 
 	private void printPokerHand(KortKombinationer pokerHand) {
@@ -191,7 +199,7 @@ public class TUI {
 		}
 
 		prompt();
-		
+
 		try {
 
 			int menuChoice = s.nextInt();
@@ -205,8 +213,7 @@ public class TUI {
 				return false;
 			}
 		} catch (InputMismatchException e) {
-			System.err.println("Bad input.");
-			System.out.println();
+			onInputMismatchException();
 		}
 		return false;
 	}
@@ -225,9 +232,9 @@ public class TUI {
 
 		System.out.println("Which cards do you want to hold?:");
 		System.out.println("Write the card number/s with a space in between.");
-		
+
 		prompt();
-		
+
 		String[] selection = s.nextLine().split(" ");
 		System.out.println();
 
@@ -247,7 +254,7 @@ public class TUI {
 					selectedCards[cardIndex] = true;
 				}
 			} catch (Exception e) {
-				System.err.println("Could not select card " + position);
+				System.err.println("Could not select card \"" + position + "\"");
 				System.out.println();
 			}
 		}
