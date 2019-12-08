@@ -1,6 +1,6 @@
 # Grupp3
-Next daily scrum 2019-12-06 08:45
+Next daily scrum 2019-12-09 13:00
 
-Kanban system in use. See Slack for more information.
+Scrum board in use. See Slack for more information.
 
 ## Happy coding!
