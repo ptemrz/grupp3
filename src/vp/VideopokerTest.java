@@ -158,6 +158,17 @@ class VideopokerTest {
 		assertEquals(videopoker.getPokerHand(videopoker.hand), KortKombinationer.ROYALSTRAIGHTFLUSH);
 	}
 	
+	@Test
+	void testFourOfAKind() {
+		boolean asume = true;
+		videopoker.hand.add(new Card(1, Suit.HEARTS));
+		videopoker.hand.add(new Card(10, Suit.SPADES));
+		videopoker.hand.add(new Card(10, Suit.DIAMONDS));
+		videopoker.hand.add(new Card(10, Suit.HEARTS));
+		videopoker.hand.add(new Card(10, Suit.CLUBS));
+		
+		assertEquals(asume, videopoker.isFourOfAKind(videopoker.hand));
+	}
 	
 //	private KortKombinationer getPokerHand(List<Card>hand) {
 //		

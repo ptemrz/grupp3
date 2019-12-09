@@ -70,7 +70,7 @@ public class Videopoker {
 		return true;
 	}
 
-	private boolean isFourOfAKind(List<Card> hand) {
+	public boolean isFourOfAKind(List<Card> hand) {
 
 		return false;
 	}
