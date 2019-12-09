@@ -1,6 +1,7 @@
 package vp;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,16 +11,16 @@ public class Videopoker {
 
 	List<Card> hand = new ArrayList<>();
 
-	public void holdCards (boolean[] selectedCards) {
+	public void holdCards(boolean[] selectedCards) {
 
 		Card[] toRemove = new Card[5];
-		
-		for (int i = 0; i < selectedCards.length; i ++) {
-			if(!selectedCards[i]) {
+
+		for (int i = 0; i < selectedCards.length; i++) {
+			if (!selectedCards[i]) {
 				toRemove[i] = hand.get(i);
 			}
 		}
-		
+
 		for (Card card : toRemove) {
 			hand.remove(card);
 		}
@@ -71,6 +72,16 @@ public class Videopoker {
 	}
 
 	private boolean isFourOfAKind(List<Card> hand) {
+
+		if (hand.get(0).getValue() == hand.get(1).getValue() && hand.get(0).getValue() == hand.get(2).getValue()
+				&& hand.get(0).getValue() == hand.get(3).getValue()) {
+			return true;
+		}
+
+		if (hand.get(1).getValue() == hand.get(2).getValue() && hand.get(1).getValue() == hand.get(3).getValue()
+				&& hand.get(1).getValue() == hand.get(4).getValue()) {
+			return true;
+		}
 
 		return false;
 	}
