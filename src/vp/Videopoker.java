@@ -74,7 +74,7 @@ public class Videopoker {
 		return true;
 	}
 
-	private boolean isFourOfAKind(List<Card> hand) {
+	public boolean isFourOfAKind(List<Card> hand) {
 
 		if (hand.get(0).getValue() == hand.get(1).getValue() && hand.get(0).getValue() == hand.get(2).getValue()
 				&& hand.get(0).getValue() == hand.get(3).getValue()) {
