@@ -261,7 +261,11 @@ public class Videopoker {
 		}
 		return false;
 	}
-
+	
+	
+	/**
+	 * Returns a sorted list of cards. Does not mutate the hand. 
+	 */
 	public List<Card> sortHand() {
 
 		List<Card> sortedHand = new ArrayList<Card>();
