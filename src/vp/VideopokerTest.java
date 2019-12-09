@@ -175,7 +175,7 @@ class VideopokerTest {
 		assertEquals(true, statement);
 		
 	}
-	
+	@Test
 	void testFourOfAKind() {
 		boolean asume = true;
 		videopoker.hand.add(new Card(1, Suit.HEARTS));
