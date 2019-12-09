@@ -38,7 +38,7 @@ public class Videopoker {
 	}
 
 	public void resetGame() {
-
+		this.deck = new Deck();
 		deck.shuffle();
 		hand.clear();
 		while (hand.size() < 5) {
