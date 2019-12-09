@@ -278,6 +278,7 @@ public class Videopoker {
 				if (hand.get(i).getValue() < sortedHand.get(j).getValue()) {
 					sortedHand.add(j, new Card(hand.get(i).getValue(), hand.get(i).getSuit()));
 					j++;
+					break;
 
 				} else if (j == sortedHand.size() - 1) {
 					sortedHand.add(new Card(hand.get(i).getValue(), hand.get(i).getSuit()));
