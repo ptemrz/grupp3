@@ -169,6 +169,7 @@ class VideopokerTest {
 		boolean statement = false;
 		videopoker.sortHand();
 		
+		
 		if(videopoker.isStraightFlush(videopoker.hand)) {
 			statement = true;
 		} else statement = false;
