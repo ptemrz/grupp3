@@ -159,22 +159,22 @@ class VideopokerTest {
 		assertEquals(videopoker.getPokerHand(videopoker.hand), KortKombinationer.ROYALSTRAIGHTFLUSH);
 	}
 	
-	@Test
-	void testsortHand() {
-		videopoker.hand.add(new Card(5, Suit.HEARTS));
-		videopoker.hand.add(new Card(6, Suit.HEARTS));
-		videopoker.hand.add(new Card(3, Suit.HEARTS));
-		videopoker.hand.add(new Card(4, Suit.HEARTS));
-		videopoker.hand.add(new Card(2, Suit.HEARTS));
-		boolean statement = false;
-		videopoker.sortHand();
-		
-		if(videopoker.isStraightFlush(videopoker.hand)) {
-			statement = true;
-		} else statement = false;
-		assertEquals(true, statement);
-		
-	}
+//	@Test
+//	void testsortHand() {
+//		videopoker.hand.add(new Card(5, Suit.HEARTS));
+//		videopoker.hand.add(new Card(6, Suit.HEARTS));
+//		videopoker.hand.add(new Card(3, Suit.HEARTS));
+//		videopoker.hand.add(new Card(4, Suit.HEARTS));
+//		videopoker.hand.add(new Card(2, Suit.HEARTS));
+//		boolean statement = false;
+//		videopoker.sortHand();
+//		
+//		if(videopoker.isStraightFlush(videopoker.hand)) {
+//			statement = true;
+//		} else statement = false;
+//		assertEquals(true, statement);
+//		
+//	}
 	
 	void testFourOfAKind() {
 		boolean asume = true;
