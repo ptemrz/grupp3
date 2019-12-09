@@ -186,7 +186,7 @@ class VideopokerTest {
 		videopoker.hand.add(new Card(2, Suit.HEARTS));
 		boolean statement = false;
 		videopoker.sortHand();
-		
+		System.out.println(videopoker.hand);
 		
 		if(videopoker.isStraightFlush(videopoker.hand)) {
 			statement = true;

@@ -273,8 +273,7 @@ public class Videopoker {
 			while (j < sortedHand.size()) {
 				if (hand.get(i).getValue() < sortedHand.get(j).getValue()) {
 					sortedHand.add(j, new Card(hand.get(i).getValue(), hand.get(i).getSuit()));
-					break;
-
+					j++;
 
 				} else if (j == sortedHand.size() - 1) {
 					sortedHand.add(new Card(hand.get(i).getValue(), hand.get(i).getSuit()));
@@ -282,7 +281,6 @@ public class Videopoker {
 				}
 
 				j++;
-				
 			}
 		}
 
