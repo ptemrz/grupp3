@@ -248,7 +248,7 @@ public class Videopoker {
 		return false;
 	}
 
-	private List<Card> sortHand() {
+	public List<Card> sortHand() {
 
 		List<Card> sortedHand = new ArrayList<Card>();
 
@@ -261,12 +261,14 @@ public class Videopoker {
 					sortedHand.add(j, new Card(hand.get(i).getValue(), hand.get(i).getSuit()));
 					j++;
 
+
 				} else if (j == sortedHand.size() - 1) {
 					sortedHand.add(new Card(hand.get(i).getValue(), hand.get(i).getSuit()));
 					break;
 				}
 
 				j++;
+				System.out.println(hand);
 			}
 		}
 

@@ -13,6 +13,7 @@ class VideopokerTest {
 	private Card card;
 	private Videopoker videopoker;
 
+
 	@BeforeEach
 	void newDeck() {
 		deck = new Deck();
@@ -27,11 +28,11 @@ class VideopokerTest {
 	void testIsPair() {
 		boolean asume = true;
 		boolean val;
+		videopoker.hand.add(new Card(8, Suit.HEARTS));
+		videopoker.hand.add(new Card(5, Suit.DIAMONDS));
 		videopoker.hand.add(new Card(1, Suit.HEARTS));
-		videopoker.hand.add(new Card(8, Suit.DIAMONDS));
-		videopoker.hand.add(new Card(3, Suit.HEARTS));
-		videopoker.hand.add(new Card(2, Suit.DIAMONDS));
-		videopoker.hand.add(new Card(2, Suit.HEARTS));
+		videopoker.hand.add(new Card(1, Suit.DIAMONDS));
+		videopoker.hand.add(new Card(6, Suit.HEARTS));
 		val = videopoker.isPair(videopoker.hand);
 		assertEquals(asume, val);
 	}
@@ -156,6 +157,23 @@ class VideopokerTest {
 		videopoker.hand.add(new Card(12, Suit.HEARTS));
 		
 		assertEquals(videopoker.getPokerHand(videopoker.hand), KortKombinationer.ROYALSTRAIGHTFLUSH);
+	}
+	
+	@Test
+	void testsortHand() {
+		videopoker.hand.add(new Card(5, Suit.HEARTS));
+		videopoker.hand.add(new Card(6, Suit.HEARTS));
+		videopoker.hand.add(new Card(3, Suit.HEARTS));
+		videopoker.hand.add(new Card(4, Suit.HEARTS));
+		videopoker.hand.add(new Card(2, Suit.HEARTS));
+		boolean statement = false;
+		videopoker.sortHand();
+		
+		if(videopoker.isStraightFlush(videopoker.hand)) {
+			statement = true;
+		} else statement = false;
+		assertEquals(true, statement);
+		
 	}
 	
 	
