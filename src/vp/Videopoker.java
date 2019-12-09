@@ -26,6 +26,9 @@ public class Videopoker {
 
 	}
 
+	/**
+	 * Draw cards from the deck until there are five cards in the hand.
+	 */
 	public void fillHandWithCards() {
 
 		while (hand.size() < 5) {
