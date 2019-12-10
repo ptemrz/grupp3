@@ -187,6 +187,18 @@ class VideopokerTest {
 		
 		assertEquals(asume, videopoker.isFourOfAKind(videopoker.hand));
 	}
+	
+	@Test
+	void testSortSameLength() {
+		videopoker.hand.add(new Card(1, Suit.HEARTS));
+		videopoker.hand.add(new Card(10, Suit.SPADES));
+		videopoker.hand.add(new Card(10, Suit.DIAMONDS));
+		videopoker.hand.add(new Card(10, Suit.HEARTS));
+		videopoker.hand.add(new Card(10, Suit.CLUBS));
+		List<Card> sortedHand = videopoker.sortHand();
+		
+		assertEquals(videopoker.hand.size(), sortedHand.size());
+	}
 
 	
 //	private KortKombinationer getPokerHand(List<Card>hand) {
