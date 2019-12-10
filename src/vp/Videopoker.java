@@ -10,6 +10,10 @@ public class Videopoker {
 	Deck deck = new Deck();
 
 	List<Card> hand = new ArrayList<>();
+	
+	/**
+	 * Method for removing cards from our hand, removes the cards which user chose
+	 */
 
 	public void holdCards(boolean[] selectedCards) {
 
@@ -38,7 +42,7 @@ public class Videopoker {
 	}
 
 	public void resetGame() {
-
+		this.deck = new Deck();
 		deck.shuffle();
 		hand.clear();
 		while (hand.size() < 5) {
@@ -73,7 +77,12 @@ public class Videopoker {
 
 		return true;
 	}
-
+	/**
+	 * Checks if the given hand is a four of a kind
+	 * 
+	 * @return true if the hand is a four of a kind
+	 * @param hand must be a sorted list of cards (assuming sorting by value)
+	 */
 	public boolean isFourOfAKind(List<Card> hand) {
 
 		if (hand.get(0).getValue() == hand.get(1).getValue() && hand.get(0).getValue() == hand.get(2).getValue()
@@ -277,8 +286,8 @@ public class Videopoker {
 			while (j < sortedHand.size()) {
 				if (hand.get(i).getValue() < sortedHand.get(j).getValue()) {
 					sortedHand.add(j, new Card(hand.get(i).getValue(), hand.get(i).getSuit()));
+					j++;
 					break;
-
 
 				} else if (j == sortedHand.size() - 1) {
 					sortedHand.add(new Card(hand.get(i).getValue(), hand.get(i).getSuit()));
@@ -286,7 +295,6 @@ public class Videopoker {
 				}
 
 				j++;
-				
 			}
 		}
 

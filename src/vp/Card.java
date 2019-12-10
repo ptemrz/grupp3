@@ -4,6 +4,8 @@ public class Card {
 	private int value;
 	private Suit suit;
 
+	
+	//Constuctor
 	public Card(int value, Suit suit) {
 		this.value = value;
 		this.suit = suit;
@@ -17,6 +19,7 @@ public class Card {
 		return suit;
 	}
 	
+	//We use toString() method to show values like "A" and graphical suits like "♥"
 	@Override
 	public String toString() {
 		String prettyValue;
