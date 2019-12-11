@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Videopoker {
-
+	//hej klassen c:
 	Deck deck = new Deck();
 
 	List<Card> hand = new ArrayList<>();
